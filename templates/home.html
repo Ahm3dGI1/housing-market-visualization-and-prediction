@@ -43,9 +43,12 @@
         <!-- New form for user inputs -->
         <form action="/" method="post" class="search">
             <input class="search-bar" type="number" name="year" placeholder="Year" required><br>
-            <input class="search-bar" type="text" name="neighborhood" placeholder="Neighborhood" required><br>
-            <input class="search-bar" type="number" name="sale_price_sqr_foot" placeholder="Sale Price per Sq Foot" required><br>
-            <input class="search-bar" type="number" name="housing_units" placeholder="Housing Units" required><br>
+            <label for="neighborhood">Neighborhood:</label>
+            <select class="search-bar" name="neighborhood" id="neighborhood" required>
+                {% for neighborhood in neighborhoods %}
+                    <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+                {% endfor %}
+            </select><br>
             <button class="search-btn" type="submit">Predict Gross Rent</button>
         </form>
         {% if predicted_rent %}

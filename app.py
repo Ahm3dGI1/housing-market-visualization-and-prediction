@@ -7,6 +7,8 @@ import numpy as np
 from joblib import load
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from neighborhoods import neighborhoods_list
+
 
 model_path = "ML\\random_forest_rent_predictor.joblib"
 model = load(model_path)
@@ -27,8 +29,8 @@ def home():
         # Extract information from form
         year = int(request.form.get('year'))
         neighborhood = request.form.get('neighborhood')
-        sale_price_sqr_foot = float(request.form.get('sale_price_sqr_foot'))
-        housing_units = int(request.form.get('housing_units'))
+        sale_price_sqr_foot = 95
+        housing_units = 374242
 
         # Prepare input data as a DataFrame
         input_df = pd.DataFrame([[year, neighborhood, sale_price_sqr_foot, housing_units]],
@@ -48,14 +50,18 @@ def home():
 
         # Make prediction
         predicted_rent = model.predict(scaled_features)[0]
-
+        print (predicted_rent)
         # Return the prediction result in HTML
         # You can also pass this to your index.html using render_template if you have a placeholder for it
-        return render_template('home.html', predicted_rent=predicted_rent)
+        return render_template('home.html', neighborhoods=neighborhoods_list, predicted_rent=predicted_rent)
 
     # If it's a GET request, render the empty form inside index.html
-    return render_template('home.html')
+    return render_template('home.html',neighborhoods=neighborhoods_list)
 
+@app.after_request
+def add_header(response):
+    response.cache_control.no_store = True
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
