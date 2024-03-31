@@ -52,50 +52,50 @@ body {
 }
 
 /* Navbar */
-.nav {
-    background-color: var(--dark-color);
-    height: 60px;
-    width: 100vw;
+
+nav {
     display: flex;
-    justify-content: center;
+    top: 0%;
+    justify-content: space-around;
     align-items: center;
-    font-size: 1.2rem;
     position: fixed;
-    top: 0;
-    z-index: 999;
+    width: 100vw;
+    min-height: 8vh;
+    background-color: #393939;
+    z-index: 1;
 }
 
 .logo {
-    color: var(--primary-color);
-    justify-self: flex-start;
-    cursor: pointer;
+    font-size: 22px;
+    font-weight: 600;
+    color: #e85a4f;
     text-decoration: none;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    margin-right: 25vw;
-    font-weight: bold;
+    margin-right: 90px; 
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
-    margin-right: 25vw;
-}
-
-.nav-item {
-    display: flex;
+    width: 30%;
     justify-content: space-around;
-    width: 50%;
 }
 
-.nav-item a {
-    color: var(--light-color);
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #eae7dc;
     text-decoration: none;
-    padding: 0 30px;
+    font-size: 18px;
+    transition: 0.5s;
+    font-weight: 600;
 }
 
-.nav-item a:hover {
+.nav-links a:hover {
+    color: #e85a4f;
+}
+
+.nav-active{
     color: var(--primary-color);
 }
 
@@ -252,6 +252,45 @@ body {
 .trend-des {
     margin: 20px;
     font-size: 20px;
+}
+
+/*About*/
+.about-content {
+    padding: 0px;
+    margin-top: 80px;
+}
+  
+.about-content img {
+    margin: 50px;
+    margin-left: 44%;
+}
+  
+.vision {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 40px;
+    font-weight: 700;
+    color: #262626;
+}
+  
+.vision hr {
+    width: 40vw;
+    border-width: 5px;
+    color: #e85a4f;
+    background-color: #e85a4f;
+    border-color: #e85a4f;
+    border: solid;
+    border-radius: 5px;
+}
+  
+.vision-text {
+    width: 70%;
+    margin: 20px;
+    margin-left: 15%;
+    text-align: center;
+    font-size: 18px;
 }
 
 /* Footer */

@@ -3,7 +3,6 @@ from flask import Flask
 from flask import Flask, request, render_template
 
 
-
 import numpy as np
 from joblib import load
 import pandas as pd
@@ -12,11 +11,12 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 model_path = "D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\random_forest_rent_predictor.joblib"
 model = load(model_path)
 
-encoder = load('D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\encoder.joblib')
-scaler = load('D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\scaler.joblib')
+encoder = load(
+    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\encoder.joblib')
+scaler = load(
+    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\scaler.joblib')
 # Initialize Flask application
 app = Flask(__name__)
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -36,7 +36,8 @@ def home():
 
         # Encode the 'neighborhood' feature
         neighborhood_encoded = encoder.transform(input_df[['neighborhood']])
-        encoded_df = pd.DataFrame(neighborhood_encoded, columns=encoder.get_feature_names_out())
+        encoded_df = pd.DataFrame(
+            neighborhood_encoded, columns=encoder.get_feature_names_out())
 
         # Concatenate encoded neighborhood with the rest of the features
         input_df.drop('neighborhood', axis=1, inplace=True)
@@ -54,7 +55,6 @@ def home():
 
     # If it's a GET request, render the empty form inside index.html
     return render_template('home.html')
-
 
 
 if __name__ == '__main__':
