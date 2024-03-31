@@ -12,6 +12,31 @@
         rel="stylesheet">
     </head>
     <body>
+        <!-- Nav -->
+        <nav class="nav" id="nav">
+            <div class="logo">HMVAP</div>
+            
+            <ul class="nav-links">
+                <li class="nav-item" id="ho">
+                    <a href="home.html">
+                        <div class="nav-text nav-active">Home</div>
+                    </a>
+                </li>
+                
+                <li class="nav-item" id="ab">
+                    <a href="about.html">
+                        <div class="nav-text">About</div>
+                    </a>
+                </li>
+                
+                <li class="nav-item" id="co">
+                    <a href="contact.html">
+                        <div class="nav-text">Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
         <div class="search-body-overlay">
         <div class="content-header">Welcome to <span>HMVAP</span></div>
 
@@ -24,46 +49,16 @@
             <button class="search-btn" type="submit">Predict Gross Rent</button>
         </form>
         {% if predicted_rent %}
-            <div class="prediction-result" style="margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-    <h2 style="color: #333;">Predicted Gross Rent</h2>
-    <p style="color: #5a5a5a; font-size: 1.5em;">${{ predicted_rent | round(2, 'floor') }}</p>
-</div>
+        <div class="prediction-result" style="margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <h2 style="color: #333;">Predicted Gross Rent</h2>
+            <p style="color: #5a5a5a; font-size: 1.5em;">${{ predicted_rent | round(2, 'floor') }}</p>
+        </div>
         {% endif %}
-    </div>
-
-
-        <!-- Nav -->
-        <nav class="nav" id="nav">
-            
-            <div class="logo">HMVAP</div>
-            
-            <ul class="nav-links">
-                <li class="nav-item" id="ho">
-                    <a href="home.html">
-                        <div class="nav-text nav-active">Home</div>
-                    </a>
-                </li>
-
-                <li class="nav-item" id="ab">
-                    <a href="about.html">
-                        <div class="nav-text">About</div>
-                    </a>
-                </li>
-
-                <li class="nav-item" id="co">
-                    <a href="contact.html">
-                        <div class="nav-text">Contact</div>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
+        </div>
         <!-- Home -->
         <div class="content">
             <div class="search-body">
                 <div class="search-body-overlay">
-                    <div class="content-header">Welcome to <span>HMVAP</span></div>
-
                     <form onsubmit="event.preventDefault();" role="search" class="search">
                         <label for="search">Search for neighborhoods</label>
                         <input class="search-bar" type="search" placeholder="Search for neighborhoods..." autofocus required />

@@ -101,12 +101,14 @@ nav {
 
 /* Content*/
 
-.content{}
+.content{
+    margin-top: 8vh;
+}
 
 /* Search Bar */
 
 .search-body {
-    background-image: url('../assets/search-bg.jpg');
+    background-image: url('../assets/web/home/search-bg.jpg');
     background-size: cover;
     width: 100vw;
     height: 100vh;
