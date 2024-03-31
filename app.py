@@ -5,16 +5,13 @@ from flask import Flask, request, render_template
 
 import numpy as np
 from joblib import load
-import pandas as pd
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import PolynomialFeatures
+import os
 
-model_path = "D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\random_forest_rent_predictor.joblib"
-model = load(model_path)
+# Load the model
+model = load(r"ML\gross_rent_linear_predictor.joblib")
+encoder = load(r"ML\new_encoder.joblib")
 
-encoder = load(
-    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\encoder.joblib')
-scaler = load(
-    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\scaler.joblib')
 # Initialize Flask application
 app = Flask(__name__)
 
@@ -27,27 +24,18 @@ def home():
         # Extract information from form
         year = int(request.form.get('year'))
         neighborhood = request.form.get('neighborhood')
-        sale_price_sqr_foot = float(request.form.get('sale_price_sqr_foot'))
-        housing_units = int(request.form.get('housing_units'))
+        # One-hot encode the input neighborhood
+        neighborhood_encoded = encoder.transform([[neighborhood]])
+        
+        # Prepare the input features with interaction terms
+        input_features = np.hstack([np.array([[year]]), neighborhood_encoded])
+        interaction = PolynomialFeatures(degree=1, include_bias=False, interaction_only=True)
 
-        # Prepare input data as a DataFrame
-        input_df = pd.DataFrame([[year, neighborhood, sale_price_sqr_foot, housing_units]],
-                                columns=['year', 'neighborhood', 'sale_price_sqr_foot', 'housing_units'])
+        input_interaction = interaction.transform(input_features)
+        
+        # Predict the gross rent using the trained model
+        predicted_rent = model.predict(input_interaction)[0]
 
-        # Encode the 'neighborhood' feature
-        neighborhood_encoded = encoder.transform(input_df[['neighborhood']])
-        encoded_df = pd.DataFrame(
-            neighborhood_encoded, columns=encoder.get_feature_names_out())
-
-        # Concatenate encoded neighborhood with the rest of the features
-        input_df.drop('neighborhood', axis=1, inplace=True)
-        final_input_df = pd.concat([input_df, encoded_df], axis=1)
-
-        # Scale the features
-        scaled_features = scaler.transform(final_input_df)
-
-        # Make prediction
-        predicted_rent = model.predict(scaled_features)[0]
 
         # Return the prediction result in HTML
         # You can also pass this to your index.html using render_template if you have a placeholder for it
