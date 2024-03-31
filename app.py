@@ -8,13 +8,13 @@ from joblib import load
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-model_path = "D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\random_forest_rent_predictor.joblib"
+model_path = "ML\\random_forest_rent_predictor.joblib"
 model = load(model_path)
 
 encoder = load(
-    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\encoder.joblib')
+    'ML\\encoder.joblib')
 scaler = load(
-    'D:\\Divine\\Project\\housing-market-visualization-and-prediction\\ML\\scaler.joblib')
+    'ML\\scaler.joblib')
 # Initialize Flask application
 app = Flask(__name__)
 
