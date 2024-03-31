@@ -20,7 +20,6 @@ body {
     margin: 0%;
     padding: 0;
     overflow-x: hidden;
-    padding-bottom: 60px;
 }
 
 ::-webkit-scrollbar {
@@ -245,4 +244,26 @@ label {
 .trend-des{
     margin: 20px;
     font-size: 20px;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--dark-color);
+    color: var(--light-dark-color);
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 20px;
+}
+
+.footer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 60%;
 }
