@@ -4,15 +4,34 @@
         <meta charset="UTF-8">
         <title>HMVAP</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <!-- Tab Icon -->
-        <link rel="icon" href="images/home/ico.png">
-        <!-- Fonts -->
+        <link rel="icon" href="{{ url_for('static', filename='images/home/ico.png') }}">
+        <!-- Fonts --> 
         <!--<link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Yanone+Kaffeesatz:wght@500&display=swap"
         rel="stylesheet">-->
     </head>
     <body>
+        <div class="search-body-overlay">
+        <div class="content-header">Welcome to <span>HMVAP</span></div>
 
+        <!-- New form for user inputs -->
+        <form action="/" method="post" class="search">
+            <input class="search-bar" type="number" name="year" placeholder="Year" required><br>
+            <input class="search-bar" type="text" name="neighborhood" placeholder="Neighborhood" required><br>
+            <input class="search-bar" type="number" name="sale_price_sqr_foot" placeholder="Sale Price per Sq Foot" required><br>
+            <input class="search-bar" type="number" name="housing_units" placeholder="Housing Units" required><br>
+            <button class="search-btn" type="submit">Predict Gross Rent</button>
+        </form>
+        {% if predicted_rent %}
+            <div class="prediction-result" style="margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+    <h2 style="color: #333;">Predicted Gross Rent</h2>
+    <p style="color: #5a5a5a; font-size: 1.5em;">${{ predicted_rent | round(2, 'floor') }}</p>
+</div>
+        {% endif %}
+    </div>
+
+        
         <!-- Nav -->
         <nav class="nav" id="nav">
             
@@ -63,7 +82,7 @@
                 <div class="trends-container">
                     <div class="trends" id="trend1">
                         <div class="trend-title">Trend 1</div>
-                        <img src="assets/trends/av_housing_units_per_year.png" alt="">
+                        <img src="static/assets/trends/av_housing_units_per_year.png" alt="">
                         <div class="trend-des">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
                         </div>
@@ -73,7 +92,7 @@
 
                     <div class="trends" id="trend2">
                         <div class="trend-title">Trend 2</div>
-                        <img src="assets/trends/parallel_cats.png" alt="">
+                        <img src="static/assets/trends/parallel_cats.png" alt="">
                         <div class="trend-des">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
                         </div>
@@ -83,7 +102,7 @@
 
                     <div class="trends" id="trend3">
                         <div class="trend-title">Trend 3</div>
-                        <img src="assets/trends/parallel_two.png" alt="">
+                        <img src="static/assets/trends/parallel_two.png" alt="">
                         <div class="trend-des">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
                         </div>
@@ -93,7 +112,7 @@
 
                     <div class="trends" id="trend4">
                         <div class="trend-title">Trend 4</div>
-                        <img src="assets/trends/top_10_most_expensive.png" alt="">
+                        <img src="static/assets/trends/top_10_most_expensive.png" alt="">
                         <div class="trend-des">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
                         </div>
@@ -103,7 +122,7 @@
 
                     <div class="trends" id="trend5">
                         <div class="trend-title">Trend 5</div>
-                        <img src="assets/trends/mapbox.png" alt="">
+                        <img src="static/assets/trends/mapbox.png" alt="">
                         <div class="trend-des">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
                         </div>
