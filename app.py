@@ -22,7 +22,6 @@ interaction = load(r"ML\interaction.joblib")
 data_path = r"ML\sfo_neighborhoods_census_data (1).csv"
 df = pd.read_csv(data_path)
 
-=======
 # Initialize Flask application
 app = Flask(__name__)
 
@@ -69,11 +68,12 @@ def search_neighborhood():
     selected_neighborhood = request.args.get('neighborhood')
 
     # Filter data for the selected neighborhood
-    neighborhood_info = df[df['neighborhood'] == selected_neighborhood].to_dict(orient='records')
+    neighborhood_info = df[df['neighborhood'] ==
+                           selected_neighborhood].to_dict(orient='records')
 
     # Pass the filtered data to the template (ensure you have a template called 'neighborhood_info.html')
     return render_template('neighborhood_info.html', neighborhood_info=neighborhood_info, neighborhoods=neighborhoods_list)
-    
+
 
 @app.after_request
 def add_header(response):
