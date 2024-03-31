@@ -30,27 +30,37 @@ def home():
         neighborhood = request.form.get('neighborhood')
         # One-hot encode the input neighborhood
         neighborhood_encoded = encoder.transform([[neighborhood]])
-        
+
         # Prepare the input features with interaction terms
         input_features = np.hstack([np.array([[year]]), neighborhood_encoded])
 
         input_interaction = interaction.transform(input_features)
-        
+
         # Predict the gross rent using the trained model
         predicted_rent = model.predict(input_interaction)[0]
 
-
         # Return the prediction result in HTML
-        # You can also pass this to your index.html using render_template if you have a placeholder for it
         return render_template('home.html', neighborhoods=neighborhoods_list, predicted_rent=predicted_rent)
 
     # If it's a GET request, render the empty form inside index.html
-    return render_template('home.html',neighborhoods=neighborhoods_list)
+    return render_template('home.html', neighborhoods=neighborhoods_list)
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 
 @app.after_request
 def add_header(response):
     response.cache_control.no_store = True
     return response
+
 
 if __name__ == '__main__':
     app.run(debug=True)
