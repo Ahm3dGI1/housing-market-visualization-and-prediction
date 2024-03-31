@@ -1,6 +1,9 @@
 from flask import Flask
 
 from flask import Flask, request, render_template
+import pandas as pd
+
+# Read the Excel file
 
 
 import numpy as np
@@ -17,7 +20,10 @@ encoder = load(
     'ML\\encoder.joblib')
 scaler = load(
     'ML\\scaler.joblib')
-# Initialize Flask application
+
+data_path = r"ML\sfo_neighborhoods_census_data (1).csv"
+df = pd.read_csv(data_path)
+
 app = Flask(__name__)
 
 
@@ -57,6 +63,18 @@ def home():
 
     # If it's a GET request, render the empty form inside index.html
     return render_template('home.html',neighborhoods=neighborhoods_list)
+
+@app.route('/search', methods=['GET'])
+def search_neighborhood():
+    # Extract selected neighborhood from the request
+    selected_neighborhood = request.args.get('neighborhood')
+
+    # Filter data for the selected neighborhood
+    neighborhood_info = df[df['neighborhood'] == selected_neighborhood].to_dict(orient='records')
+
+    # Pass the filtered data to the template (ensure you have a template called 'neighborhood_info.html')
+    return render_template('neighborhood_info.html', neighborhood_info=neighborhood_info, neighborhoods=neighborhoods_list)
+    
 
 @app.after_request
 def add_header(response):
