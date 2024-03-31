@@ -13,6 +13,7 @@ from neighborhoods import neighborhoods_list
 # Load the model
 model = load(r"ML\gross_rent_linear_predictor.joblib")
 encoder = load(r"ML\new_encoder.joblib")
+interaction = load(r"ML\interaction.joblib")
 
 
 # Initialize Flask application
@@ -32,8 +33,6 @@ def home():
         
         # Prepare the input features with interaction terms
         input_features = np.hstack([np.array([[year]]), neighborhood_encoded])
-        interaction = PolynomialFeatures(degree=1, include_bias=False, interaction_only=True)
-
 
         input_interaction = interaction.transform(input_features)
         
