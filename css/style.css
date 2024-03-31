@@ -1,0 +1,74 @@
+* {
+    scroll-behavior: smooth;
+    transition: all .3s;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+    background-color: #a7a7a7;
+    margin: 0%;
+    padding: 0;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* Navbar */
+.nav {
+    background-color: #fff;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    color: #000;
+    justify-self: flex-start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 25vw;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-right: 25vw;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.nav-item a {
+    color: #000;
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+.nav-item a:hover {
+    color: #720606aa;
+}
+
