@@ -1,62 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HMVAP</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Tab Icon -->
-    <link rel="icon" href="images/home/ico.png">
-    <!-- Fonts -->
-    <!--<link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Yanone+Kaffeesatz:wght@500&display=swap"
-    rel="stylesheet">-->
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>HMVAP</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Tab Icon -->
+        <link rel="icon" href="images/home/ico.png">
+        <!-- Fonts -->
+        <!--<link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Yanone+Kaffeesatz:wght@500&display=swap"
+        rel="stylesheet">-->
+    </head>
+    <body>
 
-    <!-- Nav -->
-    <nav class="nav" id="nav">
-        
-        <div class="logo">Logo</div>
-        
-        <ul class="nav-links">
-            <li class="nav-item nav-active" id="ho">
-                <a href="#home">
-                    <div class="nav-text">Home</div>
-                </a>
-            </li>
+        <!-- Nav -->
+        <nav class="nav" id="nav">
+            
+            <div class="logo">Logo</div>
+            
+            <ul class="nav-links">
+                <li class="nav-item nav-active" id="ho">
+                    <a href="#home">
+                        <div class="nav-text">Home</div>
+                    </a>
+                </li>
 
-            <li class="nav-item" id="ab">
-                <a href="#about">
-                    <div class="nav-text">About</div>
-                </a>
-            </li>
+                <li class="nav-item" id="ab">
+                    <a href="#about">
+                        <div class="nav-text">About</div>
+                    </a>
+                </li>
 
-            <li class="nav-item" id="co">
-                <a href="#contact">
-                    <div class="nav-text">Contact</div>
-                </a>
-            </li>
-        </ul>
-    </nav>
+                <li class="nav-item" id="co">
+                    <a href="#contact">
+                        <div class="nav-text">Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-    <!-- Home -->
-    <div class="content">
-        <div class="search-body">
-            <div class="search-body-overlay">
-                <div class="content-header">Welcome to HMVAP</div>
+        <!-- Home -->
+        <div class="content">
+            <div class="search-body">
+                <div class="search-body-overlay">
+                    <div class="content-header">Welcome to <span>HMVAP</span></div>
 
-                <form onsubmit="event.preventDefault();" role="search" class="search">
-                    <label for="search">Search for neighborhoods</label>
-                    <input class="search-bar" type="search" placeholder="Search for neighborhoods..." autofocus required />
-                    <button class="search-btn" type="submit">Go</button>    
-                </form>
+                    <form onsubmit="event.preventDefault();" role="search" class="search">
+                        <label for="search">Search for neighborhoods</label>
+                        <input class="search-bar" type="search" placeholder="Search for neighborhoods..." autofocus required />
+                        <button class="search-btn" type="submit">Go</button>    
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <div class="trends-body"></div>
-    </div>
+            <div class="trends-body">
+                <div class="trends-header">
+                    <hr>
+                    <span>Market Trends</span>
+                    <hr>
+                </div>
 
+                <div class="trends-container">
+                    <div class="trends" id="trend1">
+                        <div class="trend-title">Trend 1</div>
+                        <img src="assets/trends/av_housing_units_per_year.png" alt="">
+                        <div class="trend-des">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
+                        </div>
+                    </div>
 
-    
-</body>
+                    <hr>
+
+                    <div class="trends" id="trend2">
+                        <div class="trend-title">Trend 2</div>
+                        <img src="assets/trends/parallel_cats.png" alt="">
+                        <div class="trend-des">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="trends" id="trend3">
+                        <div class="trend-title">Trend 3</div>
+                        <img src="assets/trends/parallel_two.png" alt="">
+                        <div class="trend-des">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="trends" id="trend4">
+                        <div class="trend-title">Trend 4</div>
+                        <img src="assets/trends/top_10_most_expensive.png" alt="">
+                        <div class="trend-des">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="trends" id="trend5">
+                        <div class="trend-title">Trend 5</div>
+                        <img src="assets/trends/mapbox.png" alt="">
+                        <div class="trend-des">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus vero nesciunt, laudantium ullam cum tempora excepturi iure rem explicabo vel, officia, sapiente quas consequuntur doloremque? Est laboriosam vel dignissimos?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </body>
 </html>
