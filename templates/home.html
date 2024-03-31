@@ -6,7 +6,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="../static/css/style.css">
         <!-- Tab Icon -->
-        <link rel="icon" href="../static/assets/trends/av_housing_units_per_year.png">
+        <link rel="icon" href="../static/assets/web/home/trends/av_housing_units_per_year.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Yanone+Kaffeesatz:wght@500&display=swap"
         rel="stylesheet">
@@ -62,15 +62,10 @@
         <div class="content">
             <div class="search-body">
                 <div class="search-body-overlay">
-                    <form action="/search" method="get" class="search">
-                        <label for="neighborhood">Search for neighborhoods:</label>
-                        <select class="search-bar" id="neighborhood" name="neighborhood" required autofocus>
-                        <!-- The options will be populated dynamically from the server -->
-                            {% for neighborhood in neighborhoods %}
-                                <option value="{{ neighborhood }}">{{ neighborhood }}</option>
-                            {% endfor %}
-                        </select>
-                        <button class="search-btn" type="submit">Go</button>
+                    <form onsubmit="event.preventDefault();" role="search" class="search">
+                        <label for="search">Search for neighborhoods</label>
+                        <input class="search-bar" type="search" placeholder="Search for neighborhoods..." autofocus required />
+                        <button class="search-btn" type="submit">Go</button>    
                     </form>
                 </div>
             </div>

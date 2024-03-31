@@ -68,11 +68,12 @@ def search_neighborhood():
     selected_neighborhood = request.args.get('neighborhood')
 
     # Filter data for the selected neighborhood
-    neighborhood_info = df[df['neighborhood'] == selected_neighborhood].to_dict(orient='records')
+    neighborhood_info = df[df['neighborhood'] ==
+                           selected_neighborhood].to_dict(orient='records')
 
     # Pass the filtered data to the template (ensure you have a template called 'neighborhood_info.html')
     return render_template('neighborhood_info.html', neighborhood_info=neighborhood_info, neighborhoods=neighborhoods_list)
-    
+
 
 @app.after_request
 def add_header(response):
