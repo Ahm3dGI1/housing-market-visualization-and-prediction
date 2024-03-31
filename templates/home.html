@@ -14,7 +14,7 @@
     <body>
         <!-- Nav -->
         <nav class="nav" id="nav">
-            <div class="logo">HMVAP</div>
+            <a class="logo" href="/">HMVAP</a>
             
             <ul class="nav-links">
                 <li class="nav-item" id="ho">
@@ -42,13 +42,18 @@
 
         <!-- New form for user inputs -->
         <form action="/" method="post" class="search">
-            <input class="search-bar" type="number" name="year" placeholder="Year" required><br>
-            <label for="neighborhood">Neighborhood:</label>
-            <select class="search-bar" name="neighborhood" id="neighborhood" required>
-                {% for neighborhood in neighborhoods %}
-                    <option value="{{ neighborhood }}">{{ neighborhood }}</option>
-                {% endfor %}
-            </select><br>
+            <div class="form-group">
+                <label for="year">Year :</label>
+                <input class="search-bar" type="number" name="year" id="year" value="2024" required><br>
+            </div>
+            <div class="form-group">
+                <label for="neighborhood">Neighborhood:</label>
+                <select class="search-bar" name="neighborhood" id="neighborhood" required>
+                    {% for neighborhood in neighborhoods %}
+                        <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+                    {% endfor %}
+                </select><br>
+            </div>
             <button class="search-btn" type="submit">Predict Gross Rent</button>
         </form>
         {% if predicted_rent %}
