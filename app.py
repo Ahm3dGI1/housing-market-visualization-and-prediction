@@ -22,7 +22,6 @@ interaction = load(r"ML\interaction.joblib")
 data_path = r"ML\sfo_neighborhoods_census_data (1).csv"
 df = pd.read_csv(data_path)
 
-=======
 # Initialize Flask application
 app = Flask(__name__)
 
@@ -33,7 +32,7 @@ def home():
     # If it's a POST request, we'll process the form data
     if request.method == 'POST':
         # Extract information from form
-        year = int(request.form.get('year'))
+        year = int(request.form.get('year'))- 7
         neighborhood = request.form.get('neighborhood')
         # One-hot encode the input neighborhood
         neighborhood_encoded = encoder.transform([[neighborhood]])
