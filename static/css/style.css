@@ -327,7 +327,7 @@ nav {
     align-items: center;
   }
   
-  /*container of the box (needed for solving some bugs)*/
+  /*container of the cards*/
   .card-con {
     position: relative;
     background-color: #FF6767;
